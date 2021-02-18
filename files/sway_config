@@ -261,7 +261,7 @@ default_border pixel 4
 gaps inner 4
 
 exec --no-startup-id swaymsg 'workspace $ws1; exec xfce4-terminal' 
-exec --no-startup-id swaymsg 'workspace $ws4; exec code'
+exec --no-startup-id swaymsg 'workspace $ws4; exec code --enable-features=UseOzonePlatform --ozone-platform=wayland'
 exec --no-startup-id swaymsg 'workspace $ws5; exec com.microsoft.Teams'
 exec --no-startup-id swaymsg 'workspace $ws6; exec mailspring'
 exec --no-startup-id swaymsg 'workspace $ws7; exec com.skype.Client'

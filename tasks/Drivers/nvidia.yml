@@ -1,0 +1,2 @@
+- name: nvidia drm modeset kernel module
+  shell: if cat /boot/loader/entries/arch.conf | grep nvidia-drm.modeset=1; then echo "done"; else LASTLINE=`cat /boot/loader/entries/arch.conf | grep options` && sed -i '$d' /boot/loader/entries/arch.conf && echo $LASTLINE nvidia-drm.modeset=1 >> /boot/loader/entries/arch.conf; fi;

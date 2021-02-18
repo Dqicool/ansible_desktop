@@ -23,6 +23,8 @@
 
     # - include_tasks: ../tasks/AppCfg/vscode.yml
     # - include_tasks: ../tasks/AppCfg/xfce4term.yml
-    - include_tasks: ../tasks/AppCfg/sway.yml  
-    # - include_tasks: ../tasks/AppCfg/dunst.yml  
+    # - include_tasks: ../tasks/AppCfg/sway.yml  
+    # - include_tasks: ../tasks/AppCfg/dunst.yml 
 
+    # - include_tasks: ../tasks/Drivers/nvidia.yml
+    - include_tasks: ../tasks/Systemd/qemu-ga.yml
