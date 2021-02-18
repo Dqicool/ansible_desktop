@@ -10,5 +10,6 @@
         - breeze-default-cursor-theme
         - mailspring
         - wayvnc
+        - visual-studio-code-bin
     become: yes
     become_user: aur_builder

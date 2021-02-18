@@ -9,7 +9,6 @@
       - qt6-wayland
       - chromium
       - cmake
-      - code
       - ddcutil
       - dmenu
       - docker

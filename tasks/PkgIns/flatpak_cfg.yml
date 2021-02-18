@@ -1,0 +1,4 @@
+  - name: install paru using makepkg
+    aur: name=paru use=makepkg state=present
+    become: yes
+    become_user: aur_builder
