@@ -1,0 +1,2 @@
+- name: add qidong as user and sudoer
+  shell: useradd -U 1000 -G family qidong; usermod -aG sudo qidong; echo "%sudo   ALL=(ALL) ALL" >> /etc/sudoers

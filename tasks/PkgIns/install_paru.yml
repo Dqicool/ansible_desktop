@@ -1,8 +1,0 @@
-- name: clone paru
-  shell: git clone https://aur.archlinux.org/paru.git
-
-- name: install paru
-  shell: cd paru; makepkg -si
-
-- name: rm paru dir
-  shell: cd ..; rm -rf paru

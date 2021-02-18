@@ -1,0 +1,2 @@
+- name: add family and sudo group
+  shell: groupadd -G 1000 family; groupadd -G 27 sudo;
