@@ -1,6 +1,6 @@
   - user:
       name: aur_builder
-      create_home: no
+      create_home: yes
       group: wheel
   - lineinfile:
       path: /etc/sudoers.d/11-install-aur_builder
