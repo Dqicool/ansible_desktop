@@ -1,4 +1,4 @@
-task: # Install trizen using makepkg, skip if it is already installed
+# Install trizen using makepkg, skip if it is already installed
   - aur: name=paru use=makepkg state=present
     become: yes
     become_user: aur_builder

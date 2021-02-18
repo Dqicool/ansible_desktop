@@ -1,4 +1,3 @@
-task: 
   - user:
       name: aur_builder
       create_home: no
