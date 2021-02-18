@@ -1,0 +1,20 @@
+- name: vscode install extensions
+  shell: code --install-extension CoenraadS.bracket-pair-colorizer-2; code --install-extension eamodio.gitlens; code --install-extension Equinusocio.vsc-community-material-theme; code --install-extension Equinusocio.vsc-material-theme; code --install-extension equinusocio.vsc-material-theme-icons; code --install-extension kriegalex.vscode-cudacpp; code --install-extension ms-python.python; code --install-extension ms-toolsai.jupyter; code --install-extension ms-vscode-remote.remote-containers; code --install-extension ms-vscode-remote.remote-ssh; code --install-extension ms-vscode-remote.remote-ssh-edit; code --install-extension ms-vscode.cmake-tools; code --install-extension ms-vscode.cpptools; code --install-extension PKief.material-icon-theme; code --install-extension twxs.cmake
+  become: yes
+  become_user: qidong
+
+
+- name: mkdir .config/Code/User
+  shell: mkdir -p /home/qidong/.config/Code/User
+  become: yes
+  become_user: qidong
+
+- name: vscode setting file for qidong
+  copy:
+    src: ../../files/vscode_setting_json
+    dest: /home/qidong/.config/Code/User/settings.json
+    owner: qidong
+    group: family
+    mode: '0644'
+  become: yes
+  become_user: qidong

@@ -11,3 +11,9 @@
       create: yes
       validate: 'visudo -cf %s'
 
+  - name: "wheel to sudoers and no password for pacman"
+    lineinfile:
+      path: /etc/sudoers
+      line: '%wheel ALL=(ALL) ALL'
+      create: yes
+      validate: 'visudo -cf %s'

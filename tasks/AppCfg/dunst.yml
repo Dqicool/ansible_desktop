@@ -1,0 +1,14 @@
+  - name: Ensures .config/dunst/ dir exists
+    file: path=/home/qidong/.config/dunst/ state=directory
+    become: yes
+    become_user: qidong
+
+  - name: dunst config
+    copy:
+      src: ../../files/dunst_config
+      dest: /home/qidong/.config/dunst/dunstrc
+      owner: qidong
+      group: family
+      mode: '0644'
+    become: yes
+    become_user: qidong

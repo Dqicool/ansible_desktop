@@ -1,0 +1,24 @@
+  - name: Ensures .config/sway/ dir exists
+    file: path=/home/qidong/.config/sway/ state=directory
+    become: yes
+    become_user: qidong
+
+  - name: sway config
+    copy:
+      src: ../../files/sway_config
+      dest: /home/qidong/.config/sway/config
+      owner: qidong
+      group: family
+      mode: '0644'
+    become: yes
+    become_user: qidong
+
+  - name: background
+    copy:
+      src: ../../files/Arch.png
+      dest: /home/qidong/.config/sway/Arch.png
+      owner: qidong
+      group: family
+      mode: '0644'
+    become: yes
+    become_user: qidong

@@ -1,0 +1,30 @@
+{
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.fontSize": 14,
+    "workbench.iconTheme": "material-icon-theme",
+    "files.autoSave": "onFocusChange",
+    "explorer.openEditors.visible": 0,
+    "terminal.integrated.fontSize": 14,
+    "explorer.confirmDragAndDrop": false,
+    "remote.SSH.defaultForwardedPorts": [],
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "editor.minimap.enabled": false,
+    "git.ignoreLegacyWarning": true,
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "Iosevka Slab",
+    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "editor.fontFamily": "'Iosevka Slab','Iosevka Slab','Iosevka Slab','Iosevka Slab'",
+    "explorer.confirmDelete": false,
+    "extensions.ignoreRecommendations": false,
+    "terminal.integrated.automationShell.linux": "",
+    "editor.codeActionsOnSave": null,
+    "gitlens.defaultDateFormat": null,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.advanced.messages": {
+        "suppressGitVersionWarning": true
+    }
+}

@@ -5,15 +5,20 @@
       state: present
       gid: 1000
   
-  - name: add 1000 qidong in wheel family and docker
+  - name: add 1000 qidong
     user:
       name: qidong
       shell: /bin/bash
       state: present
-      groups: family,wheel,docker,video
-      append: yes
+      group: family
       uid: 1000
       create_home: yes
+  - name: add 1000 qidong in wheel family and docker
+    user:
+      name: qidong
+      state: present
+      groups: wheel,docker,video
+      append: yes
 
   - name: git config for qidong
     copy:
