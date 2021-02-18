@@ -4,10 +4,12 @@
   connection: local
   become: yes
 
+  pre-task: 
+    - shell: git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur
+
   tasks:
     - include_tasks: tasks/PkgIns/pacman_cache_update.yml
     - include_tasks: tasks/PkgIns/pacman_pkg.yml
     - include_tasks: tasks/UserMgt/add_aur_builder.yml
-    - include_tasks: tasks/PkgIns/install_aur_plugin.yml
     - include_tasks: tasks/PkgIns/paru_pkg.yml
 
