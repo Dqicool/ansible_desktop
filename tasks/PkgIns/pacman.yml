@@ -1,0 +1,34 @@
+- name: install pacman packages 
+  package:
+    name:
+      - alacritty
+      - base-devel
+      - xorg-xwayland
+      - sway
+      - qt5-wayland
+      - qt6-wayland
+      - chromium
+      - cmake
+      - code
+      - ddcutil
+      - dmenu
+      - docker
+      - dunst
+      - flatpak
+      - gdb
+      - git
+      - htop
+      - linux-firmware
+      - neofetch
+      - nfs-utils
+      - noto-fonts-emoji
+      - otf-font-awesome
+      - pacman-contrib
+      - parallel
+      - qemu-guest-agent
+      - root
+      - rsync
+      - upower
+      - wget
+      - sudo
+      - pulseaudio

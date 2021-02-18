@@ -1,0 +1,2 @@
+- name: pre-run | update package cache (pacman)
+  pacman: update_cache=yes

@@ -2,45 +2,8 @@
 ---
 - hosts: localhost
   connection: local
-  become: yes
-
-  pre_tasks:
-    - name: pre-run | update package cache (pacman)
-      pacman: update_cache=yes
-      changed_when: False
-      when: ansible_distribution == "Archlinux"
+  become: true
   tasks:
-    - name: install packages
-      package:
-        name:
-          - alacritty
-          - base-devel
-          - xorg-xwayland
-          - sway
-          - qt5-wayland
-          - qt6-wayland
-          - chromium
-          - cmake
-          - code
-          - ddcutil
-          - dmenu
-          - docker
-          - dunst
-          - flatpak
-          - gdb
-          - git
-          - htop
-          - linux-firmware
-          - neofetch
-          - nfs-utils
-          - noto-fonts-emoji
-          - otf-font-awesome
-          - pacman-contrib
-          - parallel
-          - qemu-guest-agent
-          - root
-          - rsync
-          - upower
-          - wget
-          - sudo
-          - pulseaudio
+    - include_tasks: tasks/PkgIns/pacman_cache_update.yml
+    - include_tasks: tasks/PkgIns/pacman.yml
+    - include_tasks: tasks/PkgIns/install_paru.yml
