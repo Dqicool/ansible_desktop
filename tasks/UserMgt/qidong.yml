@@ -1,10 +1,27 @@
-  - user:
+
+  - name: add family group
+    group:
+      name: family
+      state: present
+      gid: 1000
+  
+  - name: add 1000 qidong in wheel family and docker
+    user:
       name: qidong
+      shell: /bin/bash
+      state: present
+      groups: family,wheel,docker,video
+      append: yes
+      uid: 1000
       create_home: yes
+
+  - name: git config for qidong
+    copy:
+      src: ../../files/gitconfig
+      dest: /home/qidong/.gitconfig
+      owner: qidong
       group: family
-  - lineinfile:
-      path: /etc/sudoers.d/11-install-aur_builder
-      line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
-      create: yes
-      validate: 'visudo -cf %s'
+      mode: '0644'
+    become: yes
+    become_user: qidong
 
