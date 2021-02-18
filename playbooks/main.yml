@@ -15,6 +15,7 @@
     # - include_tasks: ../tasks/UserMgt/qidong.yml
     # - include_tasks: ../tasks/UserMgt/add_aur_builder.yml
 
+    # - include_tasks: ../tasks/AppCfg/multithreadAur.yml
     # - include_tasks: ../tasks/PkgIns/install_paru.yml
     # - include_tasks: ../tasks/PkgIns/paru_pkg.yml
 
@@ -26,5 +27,9 @@
     # - include_tasks: ../tasks/AppCfg/sway.yml  
     # - include_tasks: ../tasks/AppCfg/dunst.yml 
 
-    # - include_tasks: ../tasks/Drivers/nvidia.yml
-    - include_tasks: ../tasks/Systemd/qemu-ga.yml
+    - include_tasks: ../tasks/Drivers/nvidia.yml
+    # - include_tasks: ../tasks/Systemd/qemu-ga.yml
+    # - include_tasks: ../tasks/Systemd/docker.yml
+    # - include_tasks: ../tasks/AppCfg/nfs_cvmfs.yml
+
+    # - include_tasks: ../tasks/AppCfg/ohmybash.yml

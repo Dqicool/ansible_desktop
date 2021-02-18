@@ -11,5 +11,7 @@
         - mailspring
         - wayvnc
         - visual-studio-code-bin
+        - cvmfs
+        - oh-my-bash-git
     become: yes
     become_user: aur_builder

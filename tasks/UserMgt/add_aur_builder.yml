@@ -7,7 +7,7 @@
   - name: "wheel to sudoers and no password for pacman"
     lineinfile:
       path: /etc/sudoers
-      line: '%wheel ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+      line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
       create: yes
       validate: 'visudo -cf %s'
 

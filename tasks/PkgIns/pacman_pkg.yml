@@ -34,5 +34,3 @@
       - pulseaudio
       - thunar
       - man
-      - egl-wayland
-      - nvidia

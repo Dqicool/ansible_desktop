@@ -1,2 +1,19 @@
 - name: nvidia drm modeset kernel module
   shell: if cat /boot/loader/entries/arch.conf | grep nvidia-drm.modeset=1; then echo "done"; else LASTLINE=`cat /boot/loader/entries/arch.conf | grep options` && sed -i '$d' /boot/loader/entries/arch.conf && echo $LASTLINE nvidia-drm.modeset=1 >> /boot/loader/entries/arch.conf; fi;
+
+- name: Ensures /etc/pacman.d/hooks/ dir exists
+  file: path=/etc/pacman.d/hooks/ state=directory
+
+- name: nvidia pacman hook
+  copy: 
+    src: ../files/nvidia_pacman_hook
+    dest: /etc/pacman.d/hooks/nvidia.hook
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: install nvidia packages 
+  package:
+    name:
+      - egl-wayland
+      - nvidia
