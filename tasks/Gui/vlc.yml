@@ -1,0 +1,8 @@
+- name: Install packages VLC
+  flatpak:
+    name: org.videolan.VLC
+    state: present
+    method: user
+    remote: flathub
+  become: yes
+  become_user: qidong

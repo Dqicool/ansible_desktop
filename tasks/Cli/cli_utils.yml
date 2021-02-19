@@ -1,0 +1,9 @@
+- name: install pacman packages 
+  package:
+    name:
+      - htop
+      - pacman-contrib
+      - parallel
+      - rsync
+      - wget
+      - python

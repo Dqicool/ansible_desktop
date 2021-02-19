@@ -1,0 +1,27 @@
+
+- name: "add 8000 aur builder"
+  user:
+    name: aur_builder
+    create_home: yes
+    group: wheel
+    uid: 8000
+
+- lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: ALL'
+    create: yes
+    validate: 'visudo -cf %s'
+
+- name: allow multithread in aur 
+  shell: sed -i -e 's/#MAKEFLAGS="-j2"/MAKEFLAGS=-j'$(nproc --ignore 1)'/' -e 's/-march=x86-64 -mtune=generic/-march=native/' -e 's/xz -c -z/xz -c -z -T '$(nproc --ignore 1)'/' /etc/makepkg.conf
+
+- name: install paru using makepkg
+  aur: name=paru use=makepkg state=present
+  become: yes
+  become_user: aur_builder
+
+- name: configure pacman.conf
+  shell: sed -i -e 's/#Color/Color/' /etc/pacman.conf
+
+- name: configure paru.donf
+  shell: sed -i -e 's/#BottomUp/BottomUp/' -e  's/#RemoveMake/RemoveMake/' /etc/paru.conf

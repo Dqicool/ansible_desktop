@@ -1,0 +1,5 @@
+192.168.8.3:/mnt/TANKNVME/DATA /mnt/NVME nfs _netdev,auto 0 0
+192.168.8.3:/mnt/TANK/MainShare /mnt/MS nfs _netdev,auto 0 0
+192.168.8.3:/mnt/TANKTM/CCTV /mnt/CCTV nfs _netdev,auto 0 0
+
+

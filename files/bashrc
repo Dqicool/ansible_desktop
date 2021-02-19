@@ -104,18 +104,12 @@ if [[ ! -d $BASH_CACHE_DIR ]]; then
    mkdir $BASH_CACHE_DIR
 fi
 
-if [ "$(tty)" = "/dev/tty1" ]; then
-	read -r -p "start sway? [Y/n]" response
-	if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
-    if [[ -z `nvidia-smi | grep failed` ]] || [[ -z `nvidia-smi | grep 'command not found'` ]]; then
-      exec sway --my-next-gpu-wont-be-nvidia
-    else
-      exec sway
-    fi
-	fi
-fi
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
 
 alias 		     tb='root -e '"'"'new TBrowser'"'"''
-export PATH="/opt/cuda/bin:$HOME/.local/bin":$PATH
+
+export PATH="$HOME/.local/bin":$PATH
 
 source $OSH/oh-my-bash.sh
+

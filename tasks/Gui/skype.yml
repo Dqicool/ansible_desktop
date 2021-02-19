@@ -1,0 +1,8 @@
+- name: Install packages skype
+  flatpak:
+    name: com.skype.Client
+    state: present
+    method: user
+    remote: flathub
+  become: yes
+  become_user: qidong

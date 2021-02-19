@@ -1,0 +1,10 @@
+
+- name: install pacman docker 
+  package:
+    name: docker
+
+- name: Enable service docker
+  ansible.builtin.systemd:
+    name: docker
+    state: started
+    enabled: yes

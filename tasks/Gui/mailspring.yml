@@ -1,0 +1,7 @@
+# Install package_name_1 and package_name_2 using yay
+  - name: paru install pkg
+    aur:
+      use: paru
+      name: mailspring
+    become: yes
+    become_user: aur_builder

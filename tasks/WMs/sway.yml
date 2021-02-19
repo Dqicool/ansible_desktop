@@ -1,0 +1,53 @@
+- name: install sway and wayland packages 
+  package:
+  name:    
+    - xorg-xwayland
+    - sway
+    - qt5-wayland
+    - qt6-wayland
+    - grim
+
+- name: paru install pkg
+  aur:
+    use: paru
+    name: wayvnc
+  become: yes
+  become_user: aur_builder
+
+- name: Ensures .config/sway/ dir exists
+  file: path=/home/qidong/.config/sway/ state=directory
+  become: yes
+  become_user: qidong
+
+- name: sway config
+  copy:
+    src: ../../files/sway_config
+    dest: /home/qidong/.config/sway/config
+    owner: qidong
+    group: family
+    mode: '0644'
+  become: yes
+  become_user: qidong
+
+- name: background
+  copy:
+    src: ../../files/Arch.png
+    dest: /home/qidong/.config/sway/Arch.png
+    owner: qidong
+    group: family
+    mode: '0644'
+  become: yes
+  become_user: qidong
+
+- name: sway auto login in bashrc
+  copy: 
+    src: ../../files/sway_autologin
+    dest: /root/sway_autologin
+
+- name: sway auto login in bashrc
+  shell: if [ -z `cat /home/qidong/.bashrc | grep sway` ]; then cat /root/sway_autologin >> /home/qidong/.bashrc; fi
+
+- name: clean tmp files
+  file: 
+    path: /root/sway_autologin
+    state: absent

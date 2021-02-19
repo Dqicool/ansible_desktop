@@ -1,0 +1,10 @@
+- name: install pacman desktop utils 
+  package:
+    name:
+      - ddcutil
+      - dmenu
+      - neofetch
+      - upower
+      - pulseaudio
+      - thunar
+      - xfce4-screenshooter

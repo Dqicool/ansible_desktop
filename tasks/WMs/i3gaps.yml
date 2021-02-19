@@ -1,0 +1,68 @@
+- name: install pacman packages 
+  package:
+    name:
+      - xorg
+      - i3-gaps
+
+- name: Ensures .config/i3/ dir exists
+  file: path=/home/qidong/.config/i3/ state=directory
+  become: yes
+  become_user: qidong
+
+- name: sway config
+  copy:
+    src: ../../files/i3_gaps_config
+    dest: /home/qidong/.config/i3/config
+    owner: qidong
+    group: family
+    mode: '0644'
+  become: yes
+  become_user: qidong
+
+- name: background
+  copy:
+    src: ../../files/Arch.png
+    dest: /home/qidong/.config/i3/Arch.png
+    owner: qidong
+    group: family
+    mode: '0644'
+  become: yes
+  become_user: qidong
+
+- name: Ensures .config/i3/script dir exists
+  file: path=/home/qidong/.config/i3/script state=directory
+  become: yes
+  become_user: qidong
+
+- name: scripts for i3
+  copy:
+    src: ../../files/i3scripts/
+    dest: /home/qidong/.config/i3/script
+    owner: qidong
+    group: family
+    mode: '0644'
+  become: yes
+  become_user: qidong
+
+- name: xorg configure
+  copy: 
+    src: ../../files/xinitrc
+    dest: /home/qidong/.xinitrc
+    owner: qidong
+    group: family
+    mode: '0644'
+  become: yes
+  become_user: qidong
+
+- name: i3 auto login in bashrc
+  copy: 
+    src: ../../files/i3_autologin
+    dest: /root/i3_autologin
+
+- name: i3 auto login in bashrc
+  shell: if [ -z `cat /home/qidong/.bashrc | grep startx` ]; then cat /root/i3_autologin >> /home/qidong/.bashrc; fi
+
+- name: clean tmp files
+  file: 
+    path: /root/i3_autologin
+    state: absent

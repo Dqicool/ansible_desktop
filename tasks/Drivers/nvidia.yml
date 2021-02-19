@@ -15,5 +15,5 @@
 - name: install nvidia packages 
   package:
     name:
-      - egl-wayland
       - nvidia
+      - nvidia-settings

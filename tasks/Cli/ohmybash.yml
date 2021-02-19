@@ -1,0 +1,16 @@
+  - name: paru install ohmybash
+    aur:
+      use: paru
+      name: oh-my-bash-git
+    become: yes
+    become_user: aur_builder
+
+  - name: copy bashrc
+    copy:
+      src: ../files/bashrc
+      dest: /home/qidong/.bashrc
+      owner: qidong
+      group: family
+      mode: '0644'
+    become: yes
+    become_user: qidong

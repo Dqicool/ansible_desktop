@@ -1,5 +1,0 @@
-- name: configure pacman.conf
-  shell: sed -i -e 's/#Color/Color/' /etc/pacman.conf
-
-- name: configure paru.donf
-  shell: sed -i -e 's/#BottomUp/BottomUp/' -e  's/#RemoveMake/RemoveMake/' /etc/paru.conf

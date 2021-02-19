@@ -1,0 +1,10 @@
+if [ "$(tty)" = "/dev/tty1" ]; then
+	read -r -p "start sway? [Y/n]" response
+	if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
+    if [[ -z `lspci -k | grep -e 'Kernel driver in use: nvidia'` ]]; then
+      exec sway
+    else
+      exec sway --my-next-gpu-wont-be-nvidia
+    fi
+	fi
+fi

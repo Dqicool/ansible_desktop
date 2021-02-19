@@ -1,8 +1,0 @@
----
-- hosts: localhost
-  connection: local
-  become: yes
-
-  tasks: 
-    - name: install aur
-      shell: git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur

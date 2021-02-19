@@ -27,7 +27,7 @@ output * bg /home/qidong/.config/sway/Arch.png fill
 #
 # Example configuration:
 #
-output Virtual-1 resolution 1920x1080
+output Virtual-1 resolution 2560x1600 scale 1.25
 output 'Acer Technologies XV273K 0x000095C2' scale 2.0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs

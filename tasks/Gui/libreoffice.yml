@@ -1,0 +1,9 @@
+- name: Install packages libreoffice
+  flatpak:
+    name: org.libreoffice.LibreOffice
+    state: present
+    method: user
+    remote: flathub
+  become: yes
+  become_user: qidong
+

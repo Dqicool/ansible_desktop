@@ -1,0 +1,14 @@
+- name: install pacman packages 
+  package:
+    name:
+      - base-devel
+      - cmake
+      - gdb
+      - linux-firmware
+      - sudo
+      - man
+      - python 
+      - ansible 
+      - git 
+      - networkmanager 
+      - openssh

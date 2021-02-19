@@ -1,0 +1,29 @@
+  - name: install pacman packages 
+  package:
+    name: nfs-utils
+  
+  - name: copy nfs config
+    copy:
+      src: ../files/fstab_nfs
+      dest: /root/fstab_nfs
+      owner: root
+      group: wheel
+      mode: '0644'
+  
+  - name: Ensures /mnt/MS dir exists
+    file: path=/mnt/MS state=directory
+
+  - name: Ensures /mnt/CCTV dir exists
+    file: path=/mnt/CCTV state=directory
+
+  - name: Ensures /mnt/NVME dir exists
+    file: path=/mnt/NVME state=directory
+
+  - name: append nfs to fstab
+    shell: if cat /etc/fstab | grep nfs; then echo "done"; else cat /root/fstab_nfs >> /etc/fstab; fi;
+
+  - name: remove tmp files
+    file: 
+      path: ../../ansible_desktop/files/cvmfs_nfs_fstab
+      dest: /root/fstab_nfs
+      state: absent

@@ -1,0 +1,18 @@
+#!/bin/bash
+if [[ `whoami` -eq 'root' ]]; then
+    cd ~
+    pacman -S python ansible git networkmanager openssh
+    systemctl enable NetworkManager sshd
+    systemctl start NetworkManager sshd
+    systemctl systemctl set-default multi-user.target
+    git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur
+    git clone https://github.com/Dqicool/ansible_desktop.git
+	read -r -p "wayland sway? [Y/n], otherwise X i3 " response
+	if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
+        ansible-playbook ansible_desktop/playbooks/waylandSway.yml
+    else
+        ansible-playbook ansible_desktop/playbooks/Xi3.yml
+	fi
+else
+    echo "please run this script with root"
+fi

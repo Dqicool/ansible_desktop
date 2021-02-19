@@ -1,0 +1,4 @@
+- name: upgrade aur
+  aur:
+    use: paru 
+    upgrade: yes

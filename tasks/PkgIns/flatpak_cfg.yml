@@ -1,9 +1,0 @@
-- name: delete system flathub
-  shell: if flatpak remotes | grep flathub; then  flatpak remote-delete flathub --system; fi;
-  when: 
-
-- name: add user flathub
-  shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo --user
-  become: yes
-  become_user: qidong
-

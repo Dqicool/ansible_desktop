@@ -1,0 +1,18 @@
+- name: install pacman packages 
+  package:
+    name: xfce4-terminal
+
+- name: Ensures .config/xfce4/terminal dir exists
+  file: path=/home/qidong/.config/xfce4/terminal/ state=directory
+  become: yes
+  become_user: qidong
+
+- name: xfce4 terminal config
+  copy:
+    src: ../../files/xfce4terminalrc
+    dest: /home/qidong/.config/xfce4/terminal/terminalrc
+    owner: qidong
+    group: family
+    mode: '0644'
+  become: yes
+  become_user: qidong

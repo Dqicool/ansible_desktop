@@ -1,0 +1,9 @@
+- name: install pacman packages 
+  package:
+    name: qemu-guest-agent
+
+- name: Enable service qemu-ga
+  ansible.builtin.systemd:
+    name: qemu-guest-agent
+    state: started
+    enabled: yes

@@ -1,0 +1,40 @@
+
+---
+- hosts: localhost
+  connection: local
+  become: yes
+
+  tasks:
+    # update first
+    - include_tasks: ../tasks/Maintinance/pacman_syu.yml
+
+    # system utils
+    - include_tasks: ../tasks/Drivers/sys_utils.yml
+    - include_tasks: ../tasks/Drivers/qemu-ga.yml
+
+    #cli utils
+    - include_tasks: ../tasks/Cli/cli_utils.yml
+
+    # drivers 
+    - include_tasks: ../tasks/Drivers/paru.yml
+    - include_tasks: ../tasks/Drivers/docker.yml
+    - include_tasks: ../tasks/Drivers/nvidia.yml
+
+    # remote file system 
+    - include_tasks: ../tasks/FileSys/nfs.yml
+    - include_tasks: ../tasks/FileSys/cvmfs.yml
+
+    #user qidong
+    - include_tasks: ../tasks/Users/qidong.yml
+
+    #user cli specific
+    - include_tasks: ../tasks/Cli/root.yml
+    - include_tasks: ../tasks/Cli/ohmybash.yml
+
+    #gui apps
+    include: "{{ item }}"
+      with_fileglob:
+        - ../tasks/Gui/*.yml
+    
+    #WM
+     - include_tasks: ../tasks/WMs/sway.yml

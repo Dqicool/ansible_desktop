@@ -1,0 +1,6 @@
+if [ "$(tty)" = "/dev/tty1" ]; then
+	read -r -p "start X? [Y/n]" response
+	if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
+        exec startx
+	fi
+fi
