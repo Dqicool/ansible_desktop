@@ -1,0 +1,22 @@
+- name: install gnome and wayland packages 
+  package:
+    name:    
+      - xorg-xwayland
+      - gnome
+      - gnome-shell-extensions
+
+- name: paru install pop shell
+  aur: 
+    use: paru
+    name: gnome-shell-extension-pop-shell
+  become: yes
+  become_user: aur_builder
+
+- name: Enable gdm
+  systemd:
+    name: gdm
+    enabled: yes
+
+- name: graphical target
+  shell: systemctl set-default graphical.target
+

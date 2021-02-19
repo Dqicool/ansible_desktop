@@ -43,6 +43,10 @@
     - name: include all gui apps
       include_tasks: "{{ item }}"
       with_fileglob: 
-        - ../tasks/Gui/*.yml
+        - ../tasks/Gui/apps/*.yml
+        - ../tasks/Gui/utils/*.yml
+    
+    #cleanup
+    - include_tasks: ../tasks/CleanUp/delAURbuilder.yml
     
 

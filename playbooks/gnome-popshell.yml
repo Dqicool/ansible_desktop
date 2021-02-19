@@ -1,10 +1,13 @@
 
 ---
-- hosts: localhost
-  connection: local
-  become: yes
-
+- hosts: all
+  connection: ssh
+  gather_facts: no
+  pre_tasks: 
+    - raw: pacman -Syu --noconfirm; pacman -S reflector --noconfirm; reflector --verbose --country 'United Kingdom' --protocol https --sort rate --save /etc/pacman.d/mirrorlist; pacman -S python --noconfirm
+  
   tasks:
+    
     # update first
     - include_tasks: ../tasks/Maintinance/pacman_syu.yml
     - include_tasks: ..tasks/Cli/timesyncd.yml
@@ -19,7 +22,7 @@
     # drivers 
     - include_tasks: ../tasks/Drivers/paru.yml
     - include_tasks: ../tasks/Drivers/docker.yml
-    # - include_tasks: ../tasks/Drivers/nvidia.yml
+    - include_tasks: ../tasks/Drivers/nvidia.yml
 
     # remote file system 
     - include_tasks: ../tasks/FileSys/nfs.yml
@@ -27,20 +30,20 @@
 
     #user qidong
     - include_tasks: ../tasks/Users/qidong.yml
+    # flatpak
+    - include_tasks: ../tasks/Drivers/flatpak.yml
 
     #user cli specific
     - include_tasks: ../tasks/Cli/root.yml
     - include_tasks: ../tasks/Cli/ohmybash.yml
-
     #WM
-    - include_tasks: ../tasks/WMs/sway.yml
+    - include_tasks: ../tasks/WMs/gnome.yml
 
     #gui apps
     - name: include all gui apps
       include_tasks: "{{ item }}"
       with_fileglob: 
         - ../tasks/Gui/apps/*.yml
-        - ../tasks/Gui/utils/*.yml
     
     #cleanup
     - include_tasks: ../tasks/CleanUp/delAURbuilder.yml

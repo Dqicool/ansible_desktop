@@ -1,0 +1,7 @@
+- name: delete user aur_builder
+  user: 
+    name: aur_builder
+    state: absent
+
+- name: clean /home/aur_builder 
+  shell: rm -rf /home/aur_builder
