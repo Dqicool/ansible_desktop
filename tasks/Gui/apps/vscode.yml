@@ -19,7 +19,7 @@
 
 - name: vscode setting file for qidong
   copy:
-    src: ../../files/vscode_setting_json
+    src: ../../../files/vscode_setting_json
     dest: /home/qidong/.config/Code/User/settings.json
     owner: qidong
     group: family

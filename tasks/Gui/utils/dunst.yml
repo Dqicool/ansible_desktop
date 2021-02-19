@@ -9,7 +9,7 @@
 
   - name: dunst config
     copy:
-      src: ../../files/dunst_config
+      src: ../../../files/dunst_config
       dest: /home/qidong/.config/dunst/dunstrc
       owner: qidong
       group: family

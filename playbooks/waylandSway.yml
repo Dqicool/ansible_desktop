@@ -6,8 +6,9 @@
 
   tasks:
     # update first
+    - include_tasks: ../tasks/Maintinance/rebuild_keys.yml
     - include_tasks: ../tasks/Maintinance/pacman_syu.yml
-    - include_tasks: ..tasks/Cli/timesyncd.yml
+    - include_tasks: ../tasks/Cli/timesyncd.yml
 
     # system utils
     - include_tasks: ../tasks/Drivers/sys_utils.yml

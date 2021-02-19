@@ -9,7 +9,7 @@
 
 - name: xfce4 terminal config
   copy:
-    src: ../../files/xfce4terminalrc
+    src: ../../../files/xfce4terminalrc
     dest: /home/qidong/.config/xfce4/terminal/terminalrc
     owner: qidong
     group: family
