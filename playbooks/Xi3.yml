@@ -30,11 +30,12 @@
     #user cli specific
     - include_tasks: ../tasks/Cli/root.yml
     - include_tasks: ../tasks/Cli/ohmybash.yml
+    #WM
+    - include_tasks: ../tasks/WMs/i3gaps.yml
 
     #gui apps
-    - include: "{{ item }}"
-      with_fileglob:
-        - ../tasks/Gui/*.yml
+    - name: include all gui apps
+      include: "{{ item }}"
+      with_fileglob: ../tasks/Gui/*.yml
     
-    #WM
-     - include_tasks: ../tasks/WMs/i3gaps.yml
+
