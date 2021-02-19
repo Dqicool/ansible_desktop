@@ -24,7 +24,7 @@
     - include_tasks: ../tasks/AppCfg/sway.yml  
     - include_tasks: ../tasks/AppCfg/dunst.yml 
 
-    - include_tasks: ../tasks/Drivers/nvidia.yml
+    # - include_tasks: ../tasks/Drivers/nvidia.yml
     - include_tasks: ../tasks/Systemd/qemu-ga.yml
     - include_tasks: ../tasks/Systemd/docker.yml
     - include_tasks: ../tasks/AppCfg/nfs_cvmfs.yml
