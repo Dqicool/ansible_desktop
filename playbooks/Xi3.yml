@@ -36,6 +36,6 @@
     #gui apps
     - name: include all gui apps
       include: "{{ item }}"
-      with_fileglob: ../tasks/Gui/*.yml
+        with_fileglob: ../tasks/Gui/*.yml
     
 
