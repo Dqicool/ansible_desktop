@@ -18,7 +18,7 @@
     # drivers 
     - include_tasks: ../tasks/Drivers/paru.yml
     - include_tasks: ../tasks/Drivers/docker.yml
-    - include_tasks: ../tasks/Drivers/nvidia.yml
+    # - include_tasks: ../tasks/Drivers/nvidia.yml
 
     # remote file system 
     - include_tasks: ../tasks/FileSys/nfs.yml
