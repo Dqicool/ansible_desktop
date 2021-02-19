@@ -1,4 +1,4 @@
-- name: install pacman packages 
+- name: install sys utils packages 
   package:
     name:
       - base-devel

@@ -1,6 +1,6 @@
   - name: install pacman packages 
     package:
-    name: nfs-utils
+      name: nfs-utils
   
   - name: copy nfs config
     copy:
@@ -24,6 +24,5 @@
 
   - name: remove tmp files
     file: 
-      path: ../../ansible_desktop/files/cvmfs_nfs_fstab
-      dest: /root/fstab_nfs
+      path: /root/fstab_nfs
       state: absent

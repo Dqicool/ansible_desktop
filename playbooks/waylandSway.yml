@@ -7,6 +7,7 @@
   tasks:
     # update first
     - include_tasks: ../tasks/Maintinance/pacman_syu.yml
+    - include_tasks: ..tasks/Cli/timesyncd.yml
 
     # system utils
     - include_tasks: ../tasks/Drivers/sys_utils.yml
@@ -31,10 +32,11 @@
     - include_tasks: ../tasks/Cli/root.yml
     - include_tasks: ../tasks/Cli/ohmybash.yml
 
-    #gui apps
-    - include: "{{ item }}"
-      with_fileglob:
-        - ../tasks/Gui/*.yml
-    
     #WM
-     - include_tasks: ../tasks/WMs/sway.yml
+    - include_tasks: ../tasks/WMs/sway.yml
+
+    #gui apps
+    - name: include all gui apps
+      include_tasks: "{{ item }}"
+      with_fileglob: 
+        - ../tasks/Gui/*.yml

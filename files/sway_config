@@ -23,7 +23,7 @@ set $menu swaymsg exec dmenu_run
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/qidong/.config/sway/Arch.png fill
+output * bg $HOME/.config/sway/Arch.png fill
 #
 # Example configuration:
 #
@@ -136,16 +136,16 @@ font pango:Iosevka Slab 15
     #bindsym $mod+d focus child
 
     # multimedia
-    bindsym XF86AudioRaiseVolume 	exec --no-startup-id ~/.config/i3/script/volumeUp.sh 	#increase sound volume
-    bindsym XF86AudioLowerVolume 	exec --no-startup-id ~/.config/i3/script/volumeDown.sh 	#decrease sound volume
-    bindsym XF86AudioMute 		    exec --no-startup-id ~/.config/i3/script/volumeMute.sh 	# mute sound
+    bindsym XF86AudioRaiseVolume 	exec --no-startup-id $HOME/.config/i3/script/volumeUp.sh 	#increase sound volume
+    bindsym XF86AudioLowerVolume 	exec --no-startup-id $HOME/.config/i3/script/volumeDown.sh 	#decrease sound volume
+    bindsym XF86AudioMute 		    exec --no-startup-id $HOME/.config/i3/script/volumeMute.sh 	# mute sound
 
     # Sreen brightness controls
 
     #bindsym XF86MonBrightnessUp 	exec --no-startup-id xbacklight -inc 20 				# increase screen brightness
     #bindsym XF86MonBrightnessDown 	exec --no-startup-id xbacklight -dec 20 				# decrease screen brightness
-    bindsym XF86MonBrightnessUp 	exec --no-startup-id ~/.config/i3/script/brightnessUp.sh 
-    bindsym XF86MonBrightnessDown 	exec --no-startup-id ~/.config/i3/script/brightnessDown.sh 
+    bindsym XF86MonBrightnessUp 	exec --no-startup-id $HOME/.config/i3/script/brightnessUp.sh 
+    bindsym XF86MonBrightnessDown 	exec --no-startup-id $HOME/.config/i3/script/brightnessDown.sh 
 
     # Media player controls
     bindsym XF86AudioPlay exec playerctl play
@@ -158,9 +158,9 @@ font pango:Iosevka Slab 15
     bindsym $mod+Shift+n exec dunstctl close-all
 
     # screenShot command
-    bindsym $mod+Shift+F5 exec xfce4-screenshooter -f -s `date +/home/qidong/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
-    bindsym $mod+Shift+F4 exec xfce4-screenshooter -w -s `date +/home/qidong/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
-    bindsym $mod+Shift+F3 exec xfce4-screenshooter -r -s `date +/home/qidong/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
+    bindsym $mod+Shift+F5 exec xfce4-screenshooter -f -s `date +$HOME/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
+    bindsym $mod+Shift+F4 exec xfce4-screenshooter -w -s `date +$HOME/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
+    bindsym $mod+Shift+F3 exec xfce4-screenshooter -r -s `date +$HOME/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
 
     # workspace 
     set $ws1 "1:  "
@@ -268,7 +268,6 @@ exec --no-startup-id swaymsg 'workspace $ws6; exec mailspring'
 exec --no-startup-id swaymsg 'workspace $ws7; exec com.skype.Client'
 exec --no-startup-id swaymsg 'workspace $ws8; exec xfce4-terminal -e htop'
 exec --no-startup-id swaymsg 'workspace $ws9; exec thunar'
-exec --no-startup-id swaymsg 'workspace $ws0; exec chromium --enable-features=UseOzonePlatform --ozone-platform=wayland'
 exec --no-startup-id swaymsg 'workspace $ws0; exec chromium --enable-features=UseOzonePlatform --ozone-platform=wayland'
 exec --no-startup-id swaymsg 'workspace $ws1'
 

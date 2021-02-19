@@ -1,3 +1,6 @@
-- name: install pacman packages 
+- name: install root packages 
   package:
     name: root
+
+- name: install opt dep of root
+  shell: pacman -S z3 vc unuran cern-vdt --noconfirm --asdep

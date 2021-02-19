@@ -1,6 +1,6 @@
   - name: install dunst packages 
     package:
-    name: dunst
+      name: dunst
 
   - name: Ensures .config/dunst/ dir exists
     file: path=/home/qidong/.config/dunst/ state=directory

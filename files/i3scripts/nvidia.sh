@@ -1,6 +1,7 @@
-#!/bin/zsh
-while :                                                                                                                                                                                                                                                                                                                           130 ↵ qichen@WS-ARCH
-	do
-	clear;nvidia-smi;sleep 5;
+#!/bin/bash
+while true; do
+	clear
+	nvidia-smi
+	sleep 5
 done
 

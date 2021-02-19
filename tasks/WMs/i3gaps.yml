@@ -1,8 +1,11 @@
-- name: install pacman packages 
+- name: install i3 related packages 
   package:
     name:
       - xorg
+      - xorg-xinit
       - i3-gaps
+      - i3status
+      - feh
 
 - name: Ensures .config/i3/ dir exists
   file: path=/home/qidong/.config/i3/ state=directory
@@ -38,6 +41,21 @@
   copy:
     src: ../../files/i3scripts/
     dest: /home/qidong/.config/i3/script
+    owner: qidong
+    group: family
+    mode: '0744'
+  become: yes
+  become_user: qidong
+
+- name: Ensures .config/i3status dir exists
+  file: path=/home/qidong/.config/i3status state=directory
+  become: yes
+  become_user: qidong
+
+- name: bar for i3
+  copy:
+    src: ../../files/i3_status_conf
+    dest: /home/qidong/.config/i3status/config
     owner: qidong
     group: family
     mode: '0644'

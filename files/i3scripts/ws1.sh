@@ -1,2 +1,2 @@
 #!/bin/sh
-zsh -c 'neofetch; zsh -i'     
+bash -c 'neofetch; bash -i'     

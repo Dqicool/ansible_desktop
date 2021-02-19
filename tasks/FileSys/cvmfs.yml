@@ -32,7 +32,7 @@
   - name: Ensures /cvmfs/atlas-nightlies.cern.ch  dir exists
     file: path=/cvmfs/atlas-nightlies.cern.ch  state=directory
 
-  - name: append cvmfs and nfs to fstab
+  - name: append cvmfs to fstab
     shell: if cat /etc/fstab | grep cvmfs; then echo "done"; else cat /root/fstab_cvmfs >> /etc/fstab; fi;
 
   - name: etc cvmfs def.loacl change to atlas
@@ -40,6 +40,5 @@
 
   - name: remove tmp files
     file: 
-      path: ../../ansible_desktop/files/cvmfs_nfs_fstab
-      dest: /root/fstab_cvmfs
+      path: /root/fstab_cvmfs
       state: absent

@@ -89,16 +89,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # multimedia
-bindsym XF86AudioRaiseVolume 	exec --no-startup-id ~/.config/i3/script/volumeUp.sh 	#increase sound volume
-bindsym XF86AudioLowerVolume 	exec --no-startup-id ~/.config/i3/script/volumeDown.sh 	#decrease sound volume
-bindsym XF86AudioMute 		    exec --no-startup-id ~/.config/i3/script/volumeMute.sh 	# mute sound
+bindsym XF86AudioRaiseVolume 	exec --no-startup-id $HOME/.config/i3/script/volumeUp.sh 	#increase sound volume
+bindsym XF86AudioLowerVolume 	exec --no-startup-id $HOME/.config/i3/script/volumeDown.sh 	#decrease sound volume
+bindsym XF86AudioMute 		    exec --no-startup-id $HOME/.config/i3/script/volumeMute.sh 	# mute sound
 
 # Sreen brightness controls
 
 #bindsym XF86MonBrightnessUp 	exec --no-startup-id xbacklight -inc 20 				# increase screen brightness
 #bindsym XF86MonBrightnessDown 	exec --no-startup-id xbacklight -dec 20 				# decrease screen brightness
-bindsym XF86MonBrightnessUp 	exec --no-startup-id ~/.config/i3/script/brightnessUp.sh 
-bindsym XF86MonBrightnessDown 	exec --no-startup-id ~/.config/i3/script/brightnessDown.sh 
+bindsym XF86MonBrightnessUp 	exec --no-startup-id $HOME/.config/i3/script/brightnessUp.sh 
+bindsym XF86MonBrightnessDown 	exec --no-startup-id $HOME/.config/i3/script/brightnessDown.sh 
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -111,9 +111,9 @@ bindsym $mod+n exec dunstctl history-pop
 bindsym $mod+Shift+n exec dunstctl close-all
 
 # screenShot command
-bindsym $mod+Shift+F5 exec xfce4-screenshooter -f -s `date +/home/qichen/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
-bindsym $mod+Shift+F4 exec xfce4-screenshooter -w -s `date +/home/qichen/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
-bindsym $mod+Shift+F3 exec xfce4-screenshooter -r -s `date +/home/qichen/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
+bindsym $mod+Shift+F5 exec xfce4-screenshooter -f -s `date +$HOME/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
+bindsym $mod+Shift+F4 exec xfce4-screenshooter -w -s `date +$HOME/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
+bindsym $mod+Shift+F3 exec xfce4-screenshooter -r -s `date +$HOME/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
 
 # workspace 
 set $ws1 "1:  "
@@ -197,7 +197,7 @@ bar {
 # workspace_min_width 40
   position top
   tray_output none
-  status_command i3status --config ~/.config/i3status/config
+  status_command i3status --config $HOME/.config/i3status/config
   #status_command swaybar
   colors {
     background #282A36
@@ -212,26 +212,26 @@ bar {
   }
 }
 
-bindsym $mod+d exec --no-startup-id "dmenu_run -c -l 20 -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'iosevka-14' -p 'Run:'"
+bindsym $mod+d exec --no-startup-id "dmenu_run -l 20 -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'iosevka-14' -p 'Run:'"
 
 for_window [class=".*"] border pixel 4
 gaps inner 4
 exec          --no-startup-id "dunst"
 #exec_always   --no-startup-id "xrandr -s 3840x2160"
-exec_always   --no-startup-id "feh --bg-fill ~/.config/i3/Arch.png"
-exec   --no-startup-id "x0vncserver -rfbauth ~/.vnc/passwd"
+exec_always   --no-startup-id "feh --bg-fill $HOME/.config/i3/Arch.png"
+#exec   --no-startup-id "x0vncserver -rfbauth $HOME/.vnc/passwd"
 #exec_always   --no-startup-id "pasystray"
 
 # Workspace specific startups
-exec --no-startup-id i3-msg 'workspace $ws1; exec xfce4-terminal -e /home/qichen/.config/i3/script/ws1.sh' 
+exec --no-startup-id i3-msg 'workspace $ws1; exec xfce4-terminal -e $HOME/.config/i3/script/ws1.sh' 
 exec --no-startup-id i3-msg 'workspace $ws4; exec code'
-exec --no-startup-id i3-msg 'workspace $ws5; exec teams'
-exec --no-startup-id i3-msg 'workspace $ws6; exec mailspring --force-device-scale-factor=2'
-exec --no-startup-id i3-msg 'workspace $ws7; exec skype'
+exec --no-startup-id i3-msg 'workspace $ws5; exec com.microsoft.Teams'
+exec --no-startup-id i3-msg 'workspace $ws6; exec mailspring'
+exec --no-startup-id i3-msg 'workspace $ws7; exec com.skype.Client'
 exec --no-startup-id i3-msg 'workspace $ws8; exec xfce4-terminal -e htop'
-exec --no-startup-id i3-msg 'workspace $ws8; exec xfce4-terminal -e /home/qichen/.config/i3/script/nvidia.sh' 
+exec --no-startup-id i3-msg 'workspace $ws8; exec xfce4-terminal -e $HOME/.config/i3/script/nvidia.sh' 
 exec --no-startup-id i3-msg 'workspace $ws9; exec thunar'
-exec --no-startup-id i3-msg 'workspace $ws0; exec chrome'
+exec --no-startup-id i3-msg 'workspace $ws0; exec chromium'
 exec --no-startup-id i3-msg 'workspace $ws1'
 
 for_window [class="Chromium"] move container to workspace $ws0

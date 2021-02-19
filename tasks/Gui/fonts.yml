@@ -11,8 +11,8 @@
     become: yes
     become_user: aur_builder
 
-- name: install pacman packages 
-  package:
-    name:
-      - noto-fonts-emoji
-      - otf-font-awesome
+  - name: install pacman packages 
+    package:
+      name:
+        - noto-fonts-emoji
+        - otf-font-awesome
