@@ -30,3 +30,9 @@
     become: yes
     become_user: qidong
 
+  - name: "wheel to sudoers"
+    lineinfile:
+      path: /etc/sudoers
+      line: '%wheel ALL=(ALL) ALL'
+      create: yes
+      validate: 'visudo -cf %s'
