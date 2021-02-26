@@ -1,0 +1,65 @@
+# Install package_name_1 and package_name_2 using yay
+  - name: paru instal fonts
+    aur:
+      use: paru
+      name:
+        - ttf-iosevka
+        - ttf-iosevka-slab
+        - ttf-iosevka-term-slab
+        - ttf-iosevka-term
+        - breeze-default-cursor-theme
+    become: yes
+    become_user: aur_builder
+
+  - name: install pacman packages 
+    package:
+      name:
+        - noto-fonts-emoji
+        - otf-font-awesome
+  
+  - name: paru instal themes
+    aur:
+      use: paru
+      name:
+        - breeze-default-cursor-theme
+        - arc-icon-theme
+        - arc-gtk-theme
+    become: yes
+    become_user: aur_builder
+
+  - name: Ensures /home/qidong/.config/gtk-3.0 dir exists
+    file: path=/home/qidong/.config/gtk-3.0 state=directory
+    become: yes
+    become_user: qidong
+
+  - name: apply themes and hidpi settings
+    copy:
+      src: ../../../files/gtk3_settings_ini
+      dest: /home/qidong/.config/gtk-3.0/settings.ini
+      owner: qidong
+      group: family
+      mode: '0644'
+    become: yes
+    become_user: qidong
+  
+  - name: Ensures /usr/share/icons/default dir exists
+    file: path=/usr/share/icons/default state=directory
+
+  - name: apply themes and hidpi settings
+    copy:
+      src: ../../../files/u_s_i_d_index_theme
+      dest: /usr/share/icons/default/index.theme
+      owner: root
+      group: root
+      mode: '0644'
+  
+  - name: apply themes and hidpi settings
+    copy:
+      src: ../../../files/xresources
+      dest: /home/qidong/.Xresources
+      owner: qidong
+      group: family
+      mode: '0644'
+    become: yes
+    become_user: qidong
+

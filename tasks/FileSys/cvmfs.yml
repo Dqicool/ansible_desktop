@@ -20,11 +20,8 @@
   - name: Ensures /cvmfs/atlas-condb.cern.ch  dir exists
     file: path=/cvmfs/atlas-condb.cern.ch  state=directory
 
-  - name: Ensures /cvmfs/atlas-condb.cern.ch  dir exists
-    file: path=/cvmfs/atlas-condb.cern.ch  state=directory
-
-  - name: Ensures /cvmfs/grid.cern.ch  dir exists
-    file: path=/cvmfs/grid.cern.ch  state=directory
+  - name: Ensures /cvmfs/unpacked.cern.ch dir exists
+    file: path=/cvmfs/unpacked.cern.ch  state=directory
 
   - name: Ensures /cvmfs/sft.cern.ch  dir exists
     file: path=/cvmfs/sft.cern.ch  state=directory
@@ -36,7 +33,7 @@
     shell: if cat /etc/fstab | grep cvmfs; then echo "done"; else cat /root/fstab_cvmfs >> /etc/fstab; fi;
 
   - name: etc cvmfs def.loacl change to atlas
-    shell: sed -i -e 's/CVMFS_REPOSITORIES=atlas.cern.ch,atlas-condb.cern.ch,grid.cern.ch,sft.cern.ch,lhcb.cern.ch,lhcbdev.cern.ch/CVMFS_REPOSITORIES=atlas.cern.ch,atlas-condb.cern.ch,grid.cern.ch,sft.cern.ch,atlas-nightlies.cern.ch/' /etc/cvmfs/default.local
+    shell: sed -i -e 's/CVMFS_REPOSITORIES=atlas.cern.ch,atlas-condb.cern.ch,grid.cern.ch,sft.cern.ch,lhcb.cern.ch,lhcbdev.cern.ch/CVMFS_REPOSITORIES=atlas.cern.ch,atlas-condb.cern.ch,atlas-nightlies.cern.ch,sft.cern.ch,unpacked.cern.ch/' /etc/cvmfs/default.local
 
   - name: remove tmp files
     file: 

@@ -6,3 +6,8 @@
     remote: flathub
   become: yes
   become_user: qidong
+
+- name: install photogimp
+  shell: git clone https://github.com/Diolinux/PhotoGIMP.git /home/qidong/PhotoGIMP; mkdir -p /home/qidong/.var/app/org.gimp.GIMP; cp -r /home/qidong/PhotoGIMP/.var/app/org.gimp.GIMP/config /home/qidong/.var/app/org.gimp.GIMP/; rm -rf /home/qidong/PhotoGIMP;
+  become: yes
+  become_user: qidong

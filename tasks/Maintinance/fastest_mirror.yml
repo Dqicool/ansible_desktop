@@ -1,0 +1,7 @@
+- name: install reflector packages 
+  package:
+    name:
+      - reflector
+
+- name: determine fastest mirror
+  shell: reflector --verbose --country 'United Kingdom' --protocol https --sort rate --save /etc/pacman.d/mirrorlist

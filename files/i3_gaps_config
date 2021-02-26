@@ -225,19 +225,23 @@ exec_always   --no-startup-id "feh --bg-fill $HOME/.config/i3/Arch.png"
 # Workspace specific startups
 exec --no-startup-id i3-msg 'workspace $ws1; exec xfce4-terminal -e $HOME/.config/i3/script/ws1.sh' 
 exec --no-startup-id i3-msg 'workspace $ws4; exec code'
-exec --no-startup-id i3-msg 'workspace $ws5; exec com.microsoft.Teams'
 exec --no-startup-id i3-msg 'workspace $ws6; exec mailspring'
+exec --no-startup-id i3-msg 'workspace $ws7; exec com.microsoft.Teams'
+exec --no-startup-id i3-msg 'workspace $ws7; exec com.discordapp.Discord'
 exec --no-startup-id i3-msg 'workspace $ws7; exec com.skype.Client'
+exec --no-startup-id i3-msg 'workspace $ws7; layout tabbed'
 exec --no-startup-id i3-msg 'workspace $ws8; exec xfce4-terminal -e htop'
 exec --no-startup-id i3-msg 'workspace $ws8; exec xfce4-terminal -e $HOME/.config/i3/script/nvidia.sh' 
-exec --no-startup-id i3-msg 'workspace $ws9; exec thunar'
+exec --no-startup-id i3-msg 'workspace $ws9; exec nautilus'
 exec --no-startup-id i3-msg 'workspace $ws0; exec chromium'
 exec --no-startup-id i3-msg 'workspace $ws1'
 
 for_window [class="Chromium"] move container to workspace $ws0
 for_window [class="Code"] move container to workspace $ws4
-for_window [class="Microsoft Teams - Preview"] move container to workspace $ws5
+
 for_window [class="Mailspring"] move container to workspace $ws6
 for_window [class="Skype"] move container to workspace $ws7
-
+for_window [class="discord"] move container to workspace $ws7
+for_window [class="Microsoft Teams - Preview"] move container to workspace $ws7
+for_window [class="Microsoft Teams - Preview"] move container to workspace $ws7
 

@@ -1,0 +1,8 @@
+- name: Install packages libreoffice
+  flatpak:
+    name: com.discordapp.Discord
+    state: present
+    method: user
+    remote: flathub
+  become: yes
+  become_user: qidong
