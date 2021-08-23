@@ -19,22 +19,22 @@
     - include_tasks: ../tasks/Cli/cli_utils.yml
 
     # drivers 
-    - include_tasks: ../tasks/Drivers/paru.yml
+    - include_tasks: ../tasks/Drivers/yay.yml
     - include_tasks: ../tasks/Drivers/docker.yml
     - include_tasks: ../tasks/Drivers/nvidia.yml
 
     # remote file system 
     - include_tasks: ../tasks/FileSys/nfs.yml
-    - include_tasks: ../tasks/FileSys/cvmfs.yml
+    # - include_tasks: ../tasks/FileSys/cvmfs.yml
 
     #user qidong
     - include_tasks: ../tasks/Users/qidong.yml
-    # flatpak
+    # # flatpak
     - include_tasks: ../tasks/Drivers/flatpak.yml
 
     #user cli specific
     - include_tasks: ../tasks/Cli/root.yml
-    - include_tasks: ../tasks/Cli/ohmybash.yml
+    - include_tasks: ../tasks/Cli/zsh.yml
     #WM
     - include_tasks: ../tasks/WMs/i3gaps.yml
 

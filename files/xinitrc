@@ -1,8 +1,7 @@
 xrdb -merge ~/.Xresources
 
-xrandr --newmode "3840x2160_120.00"  1498.25  3840 4192 4616 5392  2160 2163 2168 2316 -hsync +vsync
-xrandr --addmode DP-4 3840x2160_120.00
-xrandr --addmode Virtual-1 3840x2160_120.00
+# xrandr --newmode "3840x2160_120.00"  1498.25  3840 4192 4616 5392  2160 2163 2168 2316 -hsync +vsync
+# xrandr --addmode DP-4 3840x2160_120.00
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK

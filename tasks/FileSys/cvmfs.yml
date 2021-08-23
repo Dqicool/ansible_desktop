@@ -1,7 +1,7 @@
   # Install package_name_1 and package_name_2 using yay
-  - name: paru cvmfs pkg
+  - name: yay cvmfs pkg
     aur:
-      use: paru
+      use: yay
       name: cvmfs
     become: yes
     become_user: aur_builder

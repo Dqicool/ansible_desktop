@@ -1,4 +1,4 @@
-- name: Install packages libreoffice
+- name: Install packages discord
   flatpak:
     name: com.discordapp.Discord
     state: present

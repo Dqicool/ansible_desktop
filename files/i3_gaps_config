@@ -11,11 +11,17 @@
 
 set $mod Mod1
 
+set $left j
+set $right k
+set $up l
+set $down semicolon
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Iosevka Slab 15
+
+font pango:Iosevka Nerd Font 14
+
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -39,10 +45,10 @@ bindsym $mod+q kill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -51,10 +57,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -69,7 +75,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $mod+Shift+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -116,16 +122,16 @@ bindsym $mod+Shift+F4 exec xfce4-screenshooter -w -s `date +$HOME/Screenshots/%d
 bindsym $mod+Shift+F3 exec xfce4-screenshooter -r -s `date +$HOME/Screenshots/%d_%m_%Y_%H_%m_%S_%3N.png`
 
 # workspace 
-set $ws1 "1:  "
-set $ws2 "2:  "
-set $ws3 "3:  "
-set $ws4 "4:  "
-set $ws5 "5:  "
-set $ws6 "6:  "
-set $ws7 "7:  "
-set $ws8 "8:  "
-set $ws9 "9:  "
-set $ws0 "10:  "
+set $ws1 "1:   "
+set $ws2 "2:   "
+set $ws3 "3:   "
+set $ws4 "4:   "
+set $ws5 "5:   "
+set $ws6 "6:   "
+set $ws7 "7:   "
+set $ws8 "8:   "
+set $ws9 "9:   "
+set $ws0 "10:   "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -191,8 +197,6 @@ client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-client.background       #F8F8F2
-
 bar {
 # workspace_min_width 40
   position top
@@ -213,12 +217,15 @@ bar {
 }
 
 bindsym $mod+d exec --no-startup-id "dmenu_run -l 20 -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'iosevka-14' -p 'Run:'"
+# bindsym $mod+d exec dmenu_run -l 20 -nb \$lighterbg -nf \$foreground -fn 'iosevka-14' -p 'Run:'
 
 for_window [class=".*"] border pixel 4
-gaps inner 4
+gaps inner 16
+
 exec          --no-startup-id "dunst"
 #exec_always   --no-startup-id "xrandr -s 3840x2160"
 exec_always   --no-startup-id "feh --bg-fill $HOME/.config/i3/Arch.png"
+exec_always   --no-startup-id "picom -b --xrender-sync-fence"
 #exec   --no-startup-id "x0vncserver -rfbauth $HOME/.vnc/passwd"
 #exec_always   --no-startup-id "pasystray"
 
@@ -227,21 +234,21 @@ exec --no-startup-id i3-msg 'workspace $ws1; exec xfce4-terminal -e $HOME/.confi
 exec --no-startup-id i3-msg 'workspace $ws4; exec code'
 exec --no-startup-id i3-msg 'workspace $ws6; exec mailspring'
 exec --no-startup-id i3-msg 'workspace $ws7; exec com.microsoft.Teams'
-exec --no-startup-id i3-msg 'workspace $ws7; exec com.discordapp.Discord'
+#exec --no-startup-id i3-msg 'workspace $ws7; exec com.discordapp.Discord'
 exec --no-startup-id i3-msg 'workspace $ws7; exec com.skype.Client'
 exec --no-startup-id i3-msg 'workspace $ws7; layout tabbed'
 exec --no-startup-id i3-msg 'workspace $ws8; exec xfce4-terminal -e htop'
 exec --no-startup-id i3-msg 'workspace $ws8; exec xfce4-terminal -e $HOME/.config/i3/script/nvidia.sh' 
 exec --no-startup-id i3-msg 'workspace $ws9; exec nautilus'
-exec --no-startup-id i3-msg 'workspace $ws0; exec chromium'
+exec --no-startup-id i3-msg 'workspace $ws0; exec google-chrome-stable'
 exec --no-startup-id i3-msg 'workspace $ws1'
 
-for_window [class="Chromium"] move container to workspace $ws0
+for_window [class="Google-chrome"] move container to workspace $ws0
 for_window [class="Code"] move container to workspace $ws4
 
 for_window [class="Mailspring"] move container to workspace $ws6
 for_window [class="Skype"] move container to workspace $ws7
 for_window [class="discord"] move container to workspace $ws7
 for_window [class="Microsoft Teams - Preview"] move container to workspace $ws7
-for_window [class="Microsoft Teams - Preview"] move container to workspace $ws7
+for_window [class="mupdf"] move container to workspace $ws5
 

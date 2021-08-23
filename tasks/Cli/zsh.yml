@@ -1,0 +1,35 @@
+  - name: yay install antigen
+    aur:
+      use: yay
+      name: antigen
+    become: yes
+    become_user: aur_builder
+
+  - name: install starship packages 
+    package:
+      name: starship
+
+  - name: copy zshrc
+    copy:
+      src: ../files/zshrc
+      dest: /home/qidong/.zshrc
+      owner: qidong
+      group: family
+      mode: '0644'
+    become: yes
+    become_user: qidong
+  
+  - name: Ensures /home/qidong/.config/ dir exists
+    file: path=/home/qidong/.config/ state=directory
+    become: yes
+    become_user: qidong
+
+  - name: copy starship toml
+    copy:
+      src: ../files/starship.toml
+      dest: /home/qidong/.config/starship.toml
+      owner: qidong
+      group: family
+      mode: '0644'
+    become: yes
+    become_user: qidong

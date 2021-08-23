@@ -1,12 +1,12 @@
-- name: paru install vscode
+- name: yay install vscode
   aur:
-    use: paru
+    use: yay
     name: visual-studio-code-bin
   become: yes
   become_user: aur_builder
 
 - name: vscode install extensions
-  shell: code --install-extension CoenraadS.bracket-pair-colorizer-2; code --install-extension eamodio.gitlens; code --install-extension Equinusocio.vsc-community-material-theme; code --install-extension Equinusocio.vsc-material-theme; code --install-extension equinusocio.vsc-material-theme-icons; code --install-extension kriegalex.vscode-cudacpp; code --install-extension ms-python.python; code --install-extension ms-toolsai.jupyter; code --install-extension ms-vscode-remote.remote-containers; code --install-extension ms-vscode-remote.remote-ssh; code --install-extension ms-vscode-remote.remote-ssh-edit; code --install-extension ms-vscode.cmake-tools; code --install-extension ms-vscode.cpptools; code --install-extension PKief.material-icon-theme; code --install-extension twxs.cmake
+  shell: code --install-extension oderwat.indent-rainbow; code --install-extension aaron-bond.better-comments; code --install-extension CoenraadS.bracket-pair-colorizer-2; code --install-extension eamodio.gitlens; code --install-extension Equinusocio.vsc-community-material-theme; code --install-extension Equinusocio.vsc-material-theme; code --install-extension equinusocio.vsc-material-theme-icons; code --install-extension kriegalex.vscode-cudacpp; code --install-extension ms-python.python; code --install-extension ms-toolsai.jupyter; code --install-extension ms-vscode-remote.remote-containers; code --install-extension ms-vscode-remote.remote-ssh; code --install-extension ms-vscode-remote.remote-ssh-edit; code --install-extension ms-vscode.cmake-tools; code --install-extension ms-vscode.cpptools; code --install-extension PKief.material-icon-theme; code --install-extension twxs.cmake
   become: yes
   become_user: qidong
 

@@ -1,0 +1,129 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+scan_timeout = 1
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$line_break\
+$cmd_duration\
+$status\
+$character"""
+
+[shlvl]
+disabled = true
+[kubernetes]
+disabled = true
+[hg_branch]
+disabled = true
+[docker_context]
+disabled = true
+[package]
+disabled = true
+[cmake]
+disabled = true
+[dart]
+disabled = true
+[dotnet]
+disabled = true
+[elixir]
+disabled = true
+[elm]
+disabled = true
+[erlang]
+disabled = true
+[golang]
+disabled = true
+[helm]
+disabled = true
+[java]
+disabled = true
+[julia]
+disabled = true
+[kotlin]
+disabled = true
+[nim]
+disabled = true
+[nodejs]
+disabled = true
+[ocaml]
+disabled = true
+[perl]
+disabled = true
+[php]
+disabled = true
+[purescript]
+disabled = true
+[python]
+disabled = true
+[ruby]
+disabled = true
+[rust]
+disabled = true
+[swift]
+disabled = true
+[terraform]
+disabled = true
+[vagrant]
+disabled = true
+[zig]
+disabled = true
+[nix_shell]
+disabled = true
+[conda]
+disabled = true
+[memory_usage]
+disabled = true
+[aws]
+disabled = true
+[gcloud]
+disabled = true
+[openstack]
+disabled = true
+[env_var]
+disabled = true
+[crystal]
+disabled = true
+[custom]
+disabled = true
+[lua]
+disabled = true
+[jobs]
+disabled = true
+[battery]
+disabled = true
+[time]
+disabled = true
+
+
+
+[line_break]
+disabled = true
+
+[username]
+format = "[$user]($style)@(bold)"
+
+[hostname]
+format = "[$hostname]($style) "
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+
+[status]
+disabled = false
+symbol = "✖ "
+not_executable_symbol = "✖ "
+not_found_symbol = "✖ "
+sigint_symbol = "✖ "
+signal_symbol = "✖ "
+
+[cmd_duration]
+format = "[took $duration]($style) "
+style = "bold 98"
+
+[directory]
+style = "bold 39"

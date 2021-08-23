@@ -15,13 +15,7 @@
 - name: allow multithread in aur 
   shell: sed -i -e 's/#MAKEFLAGS="-j2"/MAKEFLAGS=-j'$(nproc --ignore 1)'/' -e 's/-march=x86-64 -mtune=generic/-march=native/' -e 's/xz -c -z/xz -c -z -T '$(nproc --ignore 1)'/' /etc/makepkg.conf
 
-- name: install paru using makepkg
-  aur: name=paru use=makepkg state=present
+- name: install yay using makepkg
+  aur: name=yay-bin use=makepkg state=present
   become: yes
   become_user: aur_builder
-
-- name: configure pacman.conf
-  shell: sed -i -e 's/#Color/Color/' /etc/pacman.conf
-
-- name: configure paru.donf
-  shell: sed -i -e 's/#BottomUp/BottomUp/' -e  's/#RemoveMake/RemoveMake/' /etc/paru.conf

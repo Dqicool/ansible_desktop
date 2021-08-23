@@ -1,25 +1,23 @@
 # Install package_name_1 and package_name_2 using yay
-  - name: paru instal fonts
+  - name: yay instal fonts
     aur:
-      use: paru
+      use: yay
       name:
-        - ttf-iosevka
-        - ttf-iosevka-slab
-        - ttf-iosevka-term-slab
-        - ttf-iosevka-term
+        - nerd-fonts-iosevka
         - breeze-default-cursor-theme
+        - noto-fonts-emoji-apple
     become: yes
     become_user: aur_builder
 
   - name: install pacman packages 
     package:
       name:
-        - noto-fonts-emoji
-        - otf-font-awesome
+        - ttc-iosevka-slab
+        - adobe-source-han-sans-cn-fonts
   
-  - name: paru instal themes
+  - name: yay instal themes
     aur:
-      use: paru
+      use: yay
       name:
         - breeze-default-cursor-theme
         - arc-icon-theme

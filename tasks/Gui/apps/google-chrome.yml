@@ -1,0 +1,6 @@
+  - name: yay install google-chrome-stable
+    aur:
+      use: yay
+      name: google-chrome
+    become: yes
+    become_user: aur_builder
