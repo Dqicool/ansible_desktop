@@ -1,1 +1,7 @@
+1. Add aur module to ansible server
 git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur
+
+2. edit hosts to include desired client
+
+3. Run this to setup client
+ansible-playbook -i hosts playbooks/Xi3.yml 
