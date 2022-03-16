@@ -17,7 +17,7 @@
   user:
     name: qidong
     state: present
-    groups: wheel,docker,video
+    groups: wheel,video,docker
     append: yes
 
 - name: git config for qidong

@@ -16,18 +16,18 @@
 
     #cli utils
     - include_tasks: ../tasks/Cli/cli_utils.yml
+
     #user qidong
     - include_tasks: ../tasks/Users/qidong.yml
 
     # drivers 
     - include_tasks: ../tasks/Drivers/yay.yml
     - include_tasks: ../tasks/Drivers/nvidia.yml
+    - include_tasks: ../tasks/Drivers/docker.yml
     - include_tasks: ../tasks/Drivers/flatpak.yml
 
     # remote file system 
     - include_tasks: ../tasks/FileSys/nfs.yml
-
-
 
     #user cli specific
     - include_tasks: ../tasks/Cli/root.yml
