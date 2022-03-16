@@ -1,14 +1,14 @@
 #!/bin/bash
 if [[ `whoami` -eq 'root' ]]; then
     cd ~
-    systemctl systemctl set-default multi-user.target
+    systemctl set-default multi-user.target
     pacman -S --noconfirm networkmanager reflector
     systemctl enable NetworkManager; systemctl start NetworkManager
     
     reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
     pacman -S --noconfirm python ansible git openssh
     systemctl enable sshd; systemctl start sshd
-    git clone https://github.com/kewlfft/ansible-aur.git ~/.ansible/plugins/modules/aur
+    ansible-galaxy collection install kewlfft.aur
     git clone https://github.com/Dqicool/ansible_desktop.git
     ansible-playbook ansible_desktop/playbooks/waylandSway.yml
 else
