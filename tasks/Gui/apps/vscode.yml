@@ -1,5 +1,5 @@
 - name: yay install vscode
-  aur:
+  kewlfft.aur.aur:
     use: yay
     name: visual-studio-code-bin
   become: yes

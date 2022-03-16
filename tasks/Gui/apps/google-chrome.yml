@@ -1,5 +1,5 @@
   - name: yay install google-chrome-stable
-    aur:
+    kewlfft.aur.aur:
       use: yay
       name: google-chrome
     become: yes

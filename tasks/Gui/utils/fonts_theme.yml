@@ -1,6 +1,6 @@
 # Install package_name_1 and package_name_2 using yay
   - name: yay instal fonts
-    aur:
+    kewlfft.aur.aur:
       use: yay
       name:
         - nerd-fonts-iosevka
@@ -16,7 +16,7 @@
         - adobe-source-han-sans-cn-fonts
   
   - name: yay instal themes
-    aur:
+    kewlfft.aur.aur:
       use: yay
       name:
         - breeze-default-cursor-theme

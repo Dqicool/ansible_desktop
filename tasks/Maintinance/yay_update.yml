@@ -1,4 +1,4 @@
 - name: upgrade aur
-  aur:
+  kewlfft.aur.aur:
     use: yay 
     upgrade: yes
