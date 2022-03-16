@@ -3,7 +3,6 @@
     name:
       - htop
       - pacman-contrib
-      - parallel
       - rsync
       - wget
       - python

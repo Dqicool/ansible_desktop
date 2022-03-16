@@ -7,12 +7,12 @@
     - qt6-wayland
     - grim
 
-- name: yay install pkg
-  aur:
-    use: yay
-    name: wayvnc
-  become: yes
-  become_user: aur_builder
+# - name: yay install pkg
+#   aur:
+#     use: yay
+#     name: wayvnc
+#   become: yes
+#   become_user: aur_builder
 
 - name: Ensures .config/sway/ dir exists
   file: path=/home/qidong/.config/sway/ state=directory

@@ -4,18 +4,3 @@
 
 - name: install opt dep of root
   shell: pacman -S z3 vc unuran cern-vdt --noconfirm --asdep
-
-- name: Ensures /home/qidong/.local/bin dir exists
-  file: path=/home/qidong/.local/bin state=directory
-  become: yes
-  become_user: qidong
-
-- name: copy starship toml
-  copy:
-    src: ../files/tb
-    dest: /home/qidong/.local/bin/tb
-    owner: qidong
-    group: family
-    mode: '0755'
-  become: yes
-  become_user: qidong
