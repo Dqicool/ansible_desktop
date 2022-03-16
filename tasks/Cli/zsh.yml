@@ -1,5 +1,5 @@
   - name: yay install antigen
-    aur:
+    kewlfft.aur.aur:
       use: yay
       name: antigen
     become: yes
