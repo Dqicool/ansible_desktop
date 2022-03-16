@@ -1,11 +1,11 @@
 - name: install sway and wayland packages 
   package:
-  name:    
-    - xorg-xwayland
-    - sway
-    - qt5-wayland
-    - qt6-wayland
-    - grim
+    name:    
+      - xorg-xwayland
+      - sway
+      - qt5-wayland
+      - qt6-wayland
+      - grim
 
 # - name: yay install pkg
 #   aur:
